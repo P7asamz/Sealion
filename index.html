@@ -3,161 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMSEALIONNN STORE - CREDIT & VAULT</title>
+    <title>IMSEALIONNN STORE - PREMIUM VAULT</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Noto+Sans+Thai:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --neon-pink: #ec4899;
-            --neon-purple: #a855f7;
-        }
-
         body {
-            font-family: 'Kanit', sans-serif;
-            background-color: #060608;
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Thai', sans-serif;
+            background-color: #040406;
+            scroll-behavior: smooth;
+        }
+
+        /* ตารางกริดพื้นหลังแนวไซเบอร์ */
+        .cyber-grid {
             background-image: 
-                radial-gradient(at 0% 0%, rgba(236, 72, 153, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.05) 0px, transparent 50%);
-            background-attachment: fixed;
-        }
-        .font-neon {
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.2);
+                linear-gradient(rgba(168, 85, 247, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        .profile-glow {
-            box-shadow: 0 0 20px rgba(236, 72, 153, 0.2), 0 0 40px rgba(168, 85, 247, 0.1);
-            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+        /* เอฟเฟกต์การ์ดกระจกรีวิว */
+        .glass-card {
+            background: linear-gradient(145deg, rgba(20, 18, 26, 0.7) 0%, rgba(11, 10, 15, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
-        /* --- การ์ดเครดิตดีไซน์แนว Inventory Item --- */
-        .credit-card {
-            position: relative;
-            background: rgba(13, 13, 16, 0.7);
-            border: 1px solid rgba(39, 39, 42, 0.6);
-            backdrop-filter: blur(8px);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        /* ดีไซน์ Dropdown ให้เด่นแต่ไม่เกะกะ */
+        .cyber-dropdown {
+            background: rgba(15, 12, 22, 0.85);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .cyber-dropdown:hover, .cyber-dropdown:focus {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            color: #fff;
         }
 
-        /* เอฟเฟกต์แสงวิบวับพาดผ่านตอน Hover */
-        .credit-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -150%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(236, 72, 153, 0.2),
-                transparent
-            );
-            transform: skewX(-20deg);
-            transition: 0.6s;
-            z-index: 5;
+        /* Hover การ์ดรูปภาพ */
+        .premium-card {
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform, border-color, box-shadow;
+        }
+        .premium-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(168, 85, 247, 0.35);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.08);
         }
 
-        .credit-card:hover {
-            transform: scale(1.03);
-            border-color: #ec4899;
-            box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+        .country-section {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            will-change: opacity, transform;
         }
 
-        .credit-card:hover::before {
-            left: 150%;
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
         }
-
-        .credit-image {
-            transition: transform 0.5s ease, filter 0.3s ease;
+        ::-webkit-scrollbar-track {
+            background: #040406;
         }
-
-        .credit-card:hover .credit-image {
-            transform: scale(1.03);
-            filter: brightness(1.05);
+        ::-webkit-scrollbar-thumb {
+            background: #1c1a24;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a855f7;
         }
     </style>
 </head>
-<body class="text-gray-200 min-h-screen selection:bg-pink-500 selection:text-black">
+<body class="text-zinc-300 min-h-screen cyber-grid antialiased selection:bg-purple-500 selection:text-black">
 
-    <header class="py-8 border-b border-zinc-900 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-5">
-            <div class="flex flex-col sm:flex-row items-center gap-5">
-                <div class="relative w-16 h-16 rounded-full p-[2px] profile-glow overflow-hidden shrink-0">
+    <header class="sticky top-0 z-40 border-b border-zinc-900/60 bg-black/60 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="relative w-11 h-11 rounded-xl overflow-hidden p-[1px] bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/20">
                     <img src="https://img2.pic.in.th/1eb70379-638a-4694-90eb-693ed5f2892f0887f90e415c8ae2.png" 
-                         alt="SEALION Profile" 
-                         class="w-full h-full object-cover rounded-full bg-zinc-900">
+                         alt="SEALION" class="w-full h-full object-cover rounded-[11px] bg-zinc-950">
                 </div>
-                <div class="text-center sm:text-left">
-                    <h1 class="text-2xl md:text-4xl font-neon font-black tracking-wider text-pink-500 neon-glow uppercase">
-                        imsealionnn
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-purple-400 font-extrabold block"></span>
+                    <h1 class="text-xl font-black tracking-tight text-white uppercase leading-none mt-0.5">
+                        imsealionnn<span class="text-purple-500">.</span>
                     </h1>
-                    <div class="flex items-center justify-center sm:justify-start gap-2 mt-1">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        <p class="text-zinc-400 text-xs font-light tracking-wide">BY Blonderax Shop • <span class="font-semibold text-white">ปลอดภัย 100%</span>
-                        </p>
-                    </div>
                 </div>
             </div>
             
-            <div>
-                <a href="https://discord.gg/vg9sQvgx9c" target="_blank" class="px-6 py-3 rounded-lg bg-pink-500 hover:bg-pink-600 text-black font-bold text-xs tracking-widest flex items-center gap-2 transition-all transform hover:-translate-y-0.5 shadow-md shadow-pink-500/10 uppercase">
-                    📩 open ticket (สั่งซื้อสินค้า)
+            <div class="flex items-center gap-4">
+                <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/40 border border-zinc-800/50">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-xs font-semibold text-zinc-400">BY Blonderax Shop</span>
+                </div>
+                <a href="https://discord.gg/vg9sQvgx9c" target="_blank" 
+                   class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold text-xs tracking-wider transition-all duration-300 transform active:scale-95 shadow-lg shadow-[#5865F2]/20 uppercase">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.73-11,68.36,68.36,0,0,1-10.64-5.12c.91-.66,1.8-1.34,2.65-2a75.58,75.58,0,0,0,73,0c.85.69,1.74,1.37,2.65,2a68.44,68.44,0,0,1-10.65,5.11,74.58,74.58,0,0,0,6.73,11,105.45,105.45,0,0,0,31-18.83C129.55,48.23,123.8,25.41,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.9,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.14,46,96,53,91,65.69,84.69,65.69Z"/>
+                    </svg>
+                    <span>Order on Discord</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-12">
+    <main class="max-w-7xl mx-auto px-6 py-12">
         
-        <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 pb-8 border-b border-zinc-900">
-            <div>
-                <h2 class="text-xl md:text-2xl font-black text-white tracking-wider uppercase flex items-center gap-2.5">
-                    <span class="text-pink-500">🗂️</span> ประวัติการซื้อ-ขายเงินเขียว FiveM
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="md:col-span-2 flex flex-col justify-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-wider w-max mb-3 border border-purple-500/20">
+                    ปลอดภัย 100%
+                </div>
+                <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
+                    ประวัติการซื้อ-ขายเงินเขียว FiveM
                 </h2>
-                <p class="text-zinc-500 text-xs md:text-sm mt-1"></p>
+                <p class="text-zinc-500 text-xs md:text-sm mt-1">รวบรวมเครดิตการขาย และปกป้อง ให้ความเป็นส่วนตัวกับลูกค้าเป็นอันดับ 1</p>
             </div>
             
-            <div class="bg-zinc-950 border border-zinc-850 rounded-xl px-6 py-2.5 text-center min-w-[180px] shadow-lg relative overflow-hidden before:absolute before:top-0 before:left-0 before:w-1 before:h-full before:bg-pink-500">
-                <p class="text-zinc-500 text-[10px] uppercase tracking-widest font-neon font-medium">ขายไปแล้วทั้งหมด</p>
-                <h3 id="total-m-display" class="text-2xl md:text-3xl font-neon font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
-                    7M
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-r-2 border-r-purple-500 relative overflow-hidden group">
+                <div class="absolute -right-4 -bottom-6 text-zinc-900/10 text-8xl font-black pointer-events-none select-none">M</div>
+                <span class="text-xs font-extrabold uppercase tracking-widest text-zinc-500">ยอดขายรวม</span>
+                <h3 id="total-m-display" class="text-4xl font-black text-white tracking-tight mt-2 font-mono bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
+                    -- M
                 </h3>
             </div>
         </div>
 
-        <div class="flex flex-wrap justify-center sm:justify-start gap-2 mb-10" id="filter-container">
-            <button onclick="filterCountry('all')" id="btn-all" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-pink-500 border border-pink-500 text-black shadow-md flex items-center gap-1.5">
-                [ ALL ]
-            </button>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-zinc-900">
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-3 bg-purple-500 rounded-sm"></span>
+                <h2 class="text-lg font-extrabold text-white uppercase tracking-wider">เครดิตการขาย</h2>
+            </div>
+            
+            <div class="flex items-center gap-3 self-end sm:self-auto">
+                <label for="server-filter" class="text-xs font-bold uppercase tracking-widest text-zinc-500 hidden md:block">Filter:</label>
+                <select id="server-filter" onchange="filterCountry(this.value)" 
+                        class="cyber-dropdown px-4 py-2 rounded-xl text-xs font-bold text-purple-300 tracking-wide pr-8 bg-no-repeat bg-[right_12px_center]">
+                    <option value="all" class="bg-zinc-950 text-zinc-300 font-sans">All Servers (แสดงทั้งหมด)</option>
+                </select>
+            </div>
         </div>
 
-        <div id="dynamic-content" class="space-y-14"></div>
+        <div id="dynamic-content" class="space-y-12">
+            </div>
 
     </main>
 
-    <footer class="border-t border-zinc-900/30 bg-zinc-950 py-8 mt-24">
-        <div class="max-w-5xl mx-auto px-4 text-center">
-            <p class="font-neon text-xs text-zinc-600 tracking-widest">IMSEALIONNN LOGISTICS</p>
-            <p class="text-[10px] text-zinc-800 tracking-wider mt-1.5">&copy; 2026. Secured Gateway.</p>
+    <footer class="border-t border-zinc-950 bg-black/40 py-8 mt-32">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-xs text-zinc-600 font-bold tracking-widest uppercase">IMSEALIONNN</p>
+            <p class="text-[10px] text-zinc-700 tracking-wider">Copyright © 2026 IMSEALIONNN</p>
         </div>
     </footer>
 
-    <div id="imageModal" class="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300" onclick="closeModal()">
-        <button class="absolute top-6 right-6 text-zinc-500 hover:text-white text-4xl font-light transition-colors" onclick="closeModal()">&times;</button>
-        <div class="max-w-4xl max-h-[90vh] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl p-1" onclick="event.stopPropagation()">
-            <img id="modalImage" src="" alt="Enlarged Credit" class="max-w-full max-h-[85vh] object-contain rounded-lg">
+    <div id="imageModal" 
+         class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" 
+         onclick="closeModal()">
+        <button class="absolute top-6 right-6 text-zinc-400 hover:text-white text-3xl font-light transition-colors duration-200" onclick="closeModal()">&times;</button>
+        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl bg-zinc-950 p-1 border border-zinc-800 shadow-2xl transition-transform duration-300 scale-95" 
+             id="modalContainer"
+             onclick="event.stopPropagation()">
+            <img id="modalImage" src="" alt="Vault Receipt" class="max-w-full max-h-[80vh] object-contain rounded-xl">
         </div>
     </div>
 
@@ -167,14 +179,13 @@
         async function loadCredits() {
             const dynamicContent = document.getElementById('dynamic-content');
             const totalDisplay = document.getElementById('total-m-display');
-            const filterContainer = document.getElementById('filter-container');
+            const selectDropdown = document.getElementById('server-filter');
             
-            // ตั้งค่าเริ่มต้นไว้ที่ 7 ตามที่คุณกำหนด
             let totalM = 0; 
 
             try {
                 const response = await fetch('credits.txt');
-                if (!response.ok) throw new Error('Load failed');
+                if (!response.ok) throw new Error('Failed to fetch data');
                 
                 const text = await response.text();
                 const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
@@ -199,25 +210,27 @@
                     groupedCountries[country].push(creditItem);
                 });
 
-                // แสดงผลยอดรวมสะสม (7M + ยอดจากไฟล์ text)
-                totalDisplay.innerText = totalM.toLocaleString() + 'M';
+                totalDisplay.innerText = totalM.toLocaleString() + ' M';
 
+                // เพิ่มรายชื่อเซิร์ฟเวอร์เข้าไปใน Dropdown
                 Object.keys(groupedCountries).forEach(countryName => {
-                    const btn = document.createElement('button');
-                    btn.id = `btn-${countryName}`;
-                    btn.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 flex items-center gap-1.5";
-                    btn.innerHTML = `<span class="text-pink-500 font-mono">⌖</span> ${countryName}`;
-                    btn.onclick = () => filterCountry(countryName);
-                    filterContainer.appendChild(btn);
+                    const option = document.createElement('option');
+                    option.value = countryName;
+                    option.className = "bg-zinc-950 text-zinc-300 font-sans";
+                    option.innerText = `${countryName} (${groupedCountries[countryName].length})`;
+                    selectDropdown.appendChild(option);
                 });
 
                 renderGroups(groupedCountries);
 
             } catch (error) {
                 console.error(error);
-                // หากโหลดไฟล์ไม่เข้า จะยังคงแสดงตัวเลขเริ่มต้น 7M เอาไว้ให้
-                totalDisplay.innerText = '7M';
-                dynamicContent.innerHTML = `<p class="text-pink-500 text-center py-10 bg-zinc-950 rounded-xl border border-dashed border-zinc-900 text-sm">คลังรีวิวกำลังอัปเดตข้อมูลระบบ...</p>`;
+                totalDisplay.innerText = '7 M';
+                dynamicContent.innerHTML = `
+                    <div class="text-center py-16 bg-zinc-950/50 rounded-2xl border border-zinc-900">
+                        <span class="text-2xl block mb-2">📦</span>
+                        <p class="text-zinc-500 text-sm font-medium">ระบบกำลังเตรียมอัปเดตข้อมูลไฟล์จากเครือข่ายหลัก...</p>
+                    </div>`;
             }
         }
 
@@ -228,34 +241,29 @@
             Object.keys(groups).forEach(countryName => {
                 const items = groups[countryName];
                 const section = document.createElement('section');
-                section.className = "country-section";
+                section.className = "country-section block opacity-100 transform scale-100 mb-8";
                 section.setAttribute('data-country', countryName);
 
                 section.innerHTML = `
-                    <div class="flex items-center gap-2.5 mb-5 border-b border-zinc-900 pb-2.5">
-                        <span class="text-base text-pink-500">◈</span>
-                        <h3 class="text-lg font-bold text-white tracking-wider uppercase">${countryName}</h3>
-                        <span class="bg-zinc-900 border border-zinc-800 text-zinc-500 text-[10px] px-2 py-0.5 rounded font-neon">
-                            SEC: ${items.length}
-                        </span>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <h3 class="text-xs font-black text-purple-400 tracking-wider uppercase font-mono bg-purple-500/5 px-2.5 py-1 rounded border border-purple-500/10">${countryName}</h3>
+                        <span class="text-[11px] text-zinc-600 font-mono">ทั้งหมด: ${items.length} รายการ</span>
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         ${items.map(item => `
-                            <div class="credit-card group cursor-pointer aspect-[3/4] flex flex-col justify-between p-2 shadow-md" onclick="openModal(this)">
-                                <div class="w-full h-[84%] rounded-lg overflow-hidden bg-zinc-950 flex items-center justify-center relative border border-zinc-900">
-                                    
-                                    <span class="absolute top-2 left-2 z-10 text-[8px] font-neon tracking-widest font-bold bg-black/90 text-green-400 px-1.5 py-0.5 rounded border border-green-500/20">
-                                        SECURED
+                            <div class="premium-card glass-card group cursor-pointer rounded-xl p-2 flex flex-col justify-between" onclick="openModal(this)">
+                                <div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-zinc-950 relative border border-zinc-900/50">
+                                    <span class="absolute top-2 left-2 z-10 text-[8px] font-bold tracking-wider bg-black/80 text-purple-400 px-1.5 py-0.5 rounded border border-purple-500/20">
+                                        VERIFIED
                                     </span>
-                                    
                                     <img src="${item.url}" 
-                                         alt="Credit Image" 
-                                         class="credit-image w-full h-full object-cover"
-                                         onerror="this.src='https://placehold.co/400x533/18181b/ec4899?text=Image+Not+Found'">
+                                         alt="Receipt" 
+                                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-104 transition-all duration-500 ease-out"
+                                         onerror="this.src='https://placehold.co/400x500/0c0a0f/a855f7?text=Image+Missing'">
                                 </div>
-                                <div class="h-[13%] w-full px-0.5 flex items-center justify-between">
-                                    <span class="text-[9px] font-neon tracking-wider text-zinc-600 group-hover:text-zinc-400 transition-colors">COMPLETED</span>
-                                    <span class="text-pink-500 font-neon font-black text-xs">
+                                <div class="pt-2.5 pb-0.5 px-1 flex items-center justify-between">
+                                    <span class="text-[9px] font-bold text-zinc-600 tracking-wider uppercase font-mono">ยอดขาย</span>
+                                    <span class="text-purple-400 font-black text-xs font-mono tracking-tight">
                                         +${item.mAmount}M
                                     </span>
                                 </div>
@@ -268,52 +276,42 @@
         }
 
         function filterCountry(targetCountry) {
-            const buttons = document.querySelectorAll('#filter-container button');
-            buttons.forEach(btn => {
-                if(btn.id === 'btn-all') {
-                    btn.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 flex items-center gap-1.5";
+            const sections = document.querySelectorAll('.country-section');
+            sections.forEach(section => {
+                if (targetCountry === 'all' || section.getAttribute('data-country') === targetCountry) {
+                    section.style.display = 'block';
+                    requestAnimationFrame(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'scale(1)';
+                    });
                 } else {
-                    btn.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 flex items-center gap-1.5";
-                    btn.innerHTML = `<span class="text-pink-500 font-mono">⌖</span> ${btn.innerText.replace('⌖ ', '')}`;
+                    section.style.opacity = '0';
+                    section.style.transform = 'scale(0.98)';
+                    section.style.display = 'none';
                 }
             });
-            
-            const activeBtn = document.getElementById(targetCountry === 'all' ? 'btn-all' : `btn-${targetCountry}`);
-            if(activeBtn) {
-                if(targetCountry === 'all') {
-                    activeBtn.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-pink-500 border border-pink-500 text-black shadow-md flex items-center gap-1.5";
-                } else {
-                    activeBtn.className = "px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all duration-300 bg-pink-500 border border-pink-500 text-black shadow-md flex items-center gap-1.5";
-                    activeBtn.innerHTML = `<span class="text-black font-mono">⌖</span> ${targetCountry}`;
-                }
-            }
-
-            if (targetCountry === 'all') {
-                const reGrouped = {};
-                allData.forEach(item => {
-                    if (!reGrouped[item.country]) reGrouped[item.country] = [];
-                    reGrouped[item.country].push(item);
-                });
-                renderGroups(reGrouped);
-            } else {
-                const filteredGroup = {};
-                filteredGroup[targetCountry] = allData.filter(item => item.country === targetCountry);
-                renderGroups(filteredGroup);
-            }
         }
 
         function openModal(element) {
-            const imgSrc = element.querySelector('.credit-image').src;
+            const imgSrc = element.querySelector('img').src;
             const modal = document.getElementById('imageModal');
+            const modalContainer = document.getElementById('modalContainer');
             const modalImg = document.getElementById('modalImage');
+            
             modalImg.src = imgSrc;
             modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-95');
+            modalContainer.classList.add('scale-100');
         }
 
         function closeModal() {
             const modal = document.getElementById('imageModal');
+            const modalContainer = document.getElementById('modalContainer');
             const modalImg = document.getElementById('modalImage');
+            
             modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContainer.classList.remove('scale-100');
+            modalContainer.classList.add('scale-95');
             setTimeout(() => { modalImg.src = ''; }, 300);
         }
 
