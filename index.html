@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMSEALIONNN STORE - PREMIUM VAULT</title>
+    <title>I'M SEALIONNN</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,56 +12,128 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', 'Noto Sans Thai', sans-serif;
-            background-color: #040406;
+            background-color: #030305;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         /* ตารางกริดพื้นหลังแนวไซเบอร์ */
         .cyber-grid {
             background-image: 
-                linear-gradient(rgba(168, 85, 247, 0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(168, 85, 247, 0.015) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(rgba(168, 85, 247, 0.012) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.012) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* บรรยากาศแสงเรืองนีออนที่พื้นหลัง (Cyber Atmosphere Glares) */
+        .cyber-glow-1 {
+            position: fixed;
+            top: -10%;
+            right: -5%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.08) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .cyber-glow-2 {
+            position: fixed;
+            bottom: 15%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.04) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* เอฟเฟกต์การ์ดกระจกรีวิว */
         .glass-card {
-            background: linear-gradient(145deg, rgba(20, 18, 26, 0.7) 0%, rgba(11, 10, 15, 0.9) 100%);
+            background: linear-gradient(145deg, rgba(18, 16, 24, 0.75) 0%, rgba(9, 8, 12, 0.95) 100%);
             border: 1px solid rgba(255, 255, 255, 0.03);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         /* ดีไซน์ Dropdown ให้เด่นแต่ไม่เกะกะ */
         .cyber-dropdown {
-            background: rgba(15, 12, 22, 0.85);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.15);
+            background: rgba(13, 11, 18, 0.9);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.05);
             outline: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .cyber-dropdown:hover, .cyber-dropdown:focus {
             border-color: rgba(168, 85, 247, 0.6);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.2);
             color: #fff;
         }
 
-        /* Hover การ์ดรูปภาพ */
+        /* Hover การ์ดรูปภาพแบบ 3D Lift & Premium Glow Shadow */
         .premium-card {
             transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, border-color, box-shadow;
         }
         .premium-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(168, 85, 247, 0.35);
-            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.08);
+            transform: translateY(-8px) scale(1.015);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 22px 40px -10px rgba(168, 85, 247, 0.15);
         }
 
         .country-section {
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease;
             will-change: opacity, transform;
+        }
+
+        /* ปุ่มดิสคอร์ดแบบมีรัศมี Pulsing ร้องเรียกสายตาแบบนุ่มนวล */
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(88, 101, 242, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(88, 101, 242, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(88, 101, 242, 0); }
+        }
+        .discord-pulse-btn {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* จัดลำดับเลเยอร์ให้เนื้อหาหลักลอยเหนือหิมะและฟลอร์เรืองแสงเสมอ */
+        header, main, footer, .custom-popup-overlay {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* โครงสร้างระบบ Popup สไตล์อนิเมชัน Ultra Smooth + สปริงเบาๆ */
+        .custom-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(3, 3, 5, 0);
+            backdrop-filter: blur(0px);
+            -webkit-backdrop-filter: blur(0px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                        backdrop-filter 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .custom-popup-overlay.active {
+            background-color: rgba(3, 3, 5, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-popup-content {
+            opacity: 0;
+            transform: scale(0.92) translateY(15px);
+            transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                        opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .custom-popup-overlay.active .custom-popup-content {
+            opacity: 1;
+            transform: scale(1) translateY(0);
         }
 
         ::-webkit-scrollbar {
@@ -69,10 +141,10 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #040406;
+            background: #030305;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1c1a24;
+            background: #17151e;
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
@@ -82,32 +154,44 @@
 </head>
 <body class="text-zinc-300 min-h-screen cyber-grid antialiased selection:bg-purple-500 selection:text-black">
 
+    <div class="cyber-glow-1"></div>
+    <div class="cyber-glow-2"></div>
+
+    <canvas id="snow-canvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;"></canvas>
+
     <header class="sticky top-0 z-40 border-b border-zinc-900/60 bg-black/60 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
             <div class="flex items-center gap-4">
                 <div class="relative w-11 h-11 rounded-xl overflow-hidden p-[1px] bg-gradient-to-br from-purple-500 to-pink-500 shadow-lg shadow-purple-500/20">
                     <img src="https://img2.pic.in.th/1eb70379-638a-4694-90eb-693ed5f2892f0887f90e415c8ae2.png" 
                          alt="SEALION" class="w-full h-full object-cover rounded-[11px] bg-zinc-950">
                 </div>
-                <div>
-                    <span class="text-[10px] uppercase tracking-widest text-purple-400 font-extrabold block"></span>
-                    <h1 class="text-xl font-black tracking-tight text-white uppercase leading-none mt-0.5">
-                        imsealionnn<span class="text-purple-500">.</span>
+                <div class="flex flex-col justify-center">
+                    <h1 class="text-xl font-black tracking-tight text-white uppercase leading-none">
+                        I'M SEALIONNN<span class="text-purple-500">.</span>
                     </h1>
+                    <span class="text-[10px] font-bold text-zinc-500 tracking-wider uppercase mt-1 block">
+                        BY Blonderax Shop
+                    </span>
                 </div>
             </div>
             
-            <div class="flex items-center gap-4">
-                <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/40 border border-zinc-800/50">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span class="text-xs font-semibold text-zinc-400">BY Blonderax Shop</span>
-                </div>
+            <div class="flex items-center gap-2.5">
+                <button onclick="openNewPopup('tos')" 
+                        title="ข้อตกลงและเงื่อนไข (Terms of Service)"
+                        class="flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-400 hover:text-purple-400 border border-zinc-800 hover:border-purple-500/30 transition-all duration-300 transform active:scale-95">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </button>
+
                 <a href="https://discord.gg/vg9sQvgx9c" target="_blank" 
-                   class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold text-xs tracking-wider transition-all duration-300 transform active:scale-95 shadow-lg shadow-[#5865F2]/20 uppercase">
+                   class="discord-pulse-btn flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] text-white font-bold text-xs tracking-wider transition-all duration-300 transform active:scale-95 uppercase">
                     <svg class="w-4 h-4 fill-current" viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg">
                         <path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.73-11,68.36,68.36,0,0,1-10.64-5.12c.91-.66,1.8-1.34,2.65-2a75.58,75.58,0,0,0,73,0c.85.69,1.74,1.37,2.65,2a68.44,68.44,0,0,1-10.65,5.11,74.58,74.58,0,0,0,6.73,11,105.45,105.45,0,0,0,31-18.83C129.55,48.23,123.8,25.41,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.9,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.14,46,96,53,91,65.69,84.69,65.69Z"/>
                     </svg>
-                    <span>Order on Discord</span>
+                    <span>Discord</span>
                 </a>
             </div>
         </div>
@@ -118,7 +202,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div class="md:col-span-2 flex flex-col justify-center">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 text-purple-400 text-xs font-bold uppercase tracking-wider w-max mb-3 border border-purple-500/20">
-                    ปลอดภัย 100%
+                    คุยง่าย ตอบไว ปลอดภัย 100%
                 </div>
                 <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
                     ประวัติการซื้อ-ขายเงินเขียว FiveM
@@ -127,10 +211,11 @@
             </div>
             
             <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-r-2 border-r-purple-500 relative overflow-hidden group">
+                <div class="absolute -right-10 -top-10 w-32 height-32 bg-purple-500/10 rounded-full blur-2xl"></div>
                 <div class="absolute -right-4 -bottom-6 text-zinc-900/10 text-8xl font-black pointer-events-none select-none">M</div>
                 <span class="text-xs font-extrabold uppercase tracking-widest text-zinc-500">ยอดขายรวม</span>
                 <h3 id="total-m-display" class="text-4xl font-black text-white tracking-tight mt-2 font-mono bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent">
-                    -- M
+                    0 M
                 </h3>
             </div>
         </div>
@@ -138,7 +223,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-zinc-900">
             <div class="flex items-center gap-2">
                 <span class="w-1.5 h-3 bg-purple-500 rounded-sm"></span>
-                <h2 class="text-lg font-extrabold text-white uppercase tracking-wider">เครดิตการขาย</h2>
+                <h2 class="text-lg font-extrabold text-white uppercase tracking-wider">หลักฐานการซื้อ-ขาย</h2>
             </div>
             
             <div class="flex items-center gap-3 self-end sm:self-auto">
@@ -151,7 +236,7 @@
         </div>
 
         <div id="dynamic-content" class="space-y-12">
-            </div>
+        </div>
 
     </main>
 
@@ -162,27 +247,95 @@
         </div>
     </footer>
 
-    <div id="imageModal" 
-         class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" 
-         onclick="closeModal()">
-        <button class="absolute top-6 right-6 text-zinc-400 hover:text-white text-3xl font-light transition-colors duration-200" onclick="closeModal()">&times;</button>
-        <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl bg-zinc-950 p-1 border border-zinc-800 shadow-2xl transition-transform duration-300 scale-95" 
-             id="modalContainer"
-             onclick="event.stopPropagation()">
-            <img id="modalImage" src="" alt="Vault Receipt" class="max-w-full max-h-[80vh] object-contain rounded-xl">
+    <div id="newCustomPopup" class="custom-popup-overlay" onclick="closeNewPopup()">
+        <button class="absolute top-6 right-6 text-zinc-400 hover:text-white text-4xl font-light transition-colors duration-200 z-50">&times;</button>
+        
+        <div id="popupImageContainer" class="custom-popup-content max-w-3xl max-h-[85vh] m-4 overflow-hidden rounded-2xl bg-[#09080d] p-1 border border-purple-500/20 shadow-[0_0_50px_rgba(168,85,247,0.15)] hidden" onclick="event.stopPropagation()">
+            <img id="newPopupImage" src="" alt="Receipt View" class="max-w-full max-h-[80vh] object-contain rounded-xl">
+        </div>
+
+        <div id="popupTosContainer" class="custom-popup-content max-w-xl w-full m-4 glass-card border border-purple-500/30 rounded-2xl p-6 shadow-[0_0_50px_rgba(168,85,247,0.2)] hidden text-left" onclick="event.stopPropagation()">
+            <div class="flex items-center gap-3 border-b border-zinc-800 pb-4 mb-5">
+                <div class="p-2 bg-purple-500/10 border border-purple-500/20 text-purple-400 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 009 11.57V10c0-.552-.448-1-1-1H6.414l1-1V5a2 2 0 00-3.172-1.634A2 2 0 004 5v2H2v2h2v3.57a13.921 13.921 0 002.828 8.655M12 11c0 3.517 1.009 6.799 2.753 9.571m3.44-2.04l-.054-.09A13.916 13.916 0 0115 11.57V10c0-.552.448-1 1-1h1.586l-1-1V5a2 2 0 013.172-1.634A2 2 0 0120 5v2h2v2h2v3.57a13.921 13.921 0 01-2.828 8.655"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-extrabold text-white tracking-wide uppercase">ข้อตกลงและเงื่อนไขการบริการ (ToS)</h3>
+            </div>
+            
+            <div class="space-y-4 text-xs md:text-sm leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
+                <div>
+                    <h4 class="font-extrabold text-yellow-400 mb-1 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span> การรับประกันคุณภาพและความปลอดภัยของสินค้า
+                    </h4>
+                    <p class="text-zinc-300 pl-3 font-medium">เงินเขียวหรือสิ่งของทุกชิ้นที่ทางร้านนำมาจำหน่ายให้กับลูกค้า <span class="text-white underline decoration-yellow-400">เป็นของที่เกิดจากการฟาร์มด้วยมือ 100%</span> มั่นใจได้ว่าไม่มีการเสก โกง หรือใช้โปรแกรมช่วยเล่นใดๆ ทั้งสิ้น เพื่อให้ลูกค้ามั่นใจสูงสุดว่าจะได้รับสินค้าที่มีคุณภาพและปลอดภัยต่อบัญชีผู้ใช้</p>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-purple-400 mb-1 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span> ประกาศเรื่องความเสี่ยง
+                    </h4>
+                    <p class="text-zinc-400 pl-3">การทำธุรกรรมซื้อขายเงินเขียวหรือ OC ทุกประเทศ มีความเสี่ยงต่อการถูกแบน</p>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-pink-400 mb-1 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span> ข้อตกลงการปฏิเสธความรับผิดชอบ
+                    </h4>
+                    <p class="text-zinc-400 pl-3">ทางร้านขอสงวนสิทธิ์ไม่รับผิดชอบต่อความเสียหายใดๆ (การโดนแบน) ที่เกิดขึ้นกับบัญชีของลูกค้า เนื่องจากเป็นความเสี่ยงที่ผู้ซื้อรับทราบและยอมรับร่วมกันก่อนทำรายการ</p>
+                </div>
+
+                <div>
+                    <h4 class="font-extrabold text-emerald-400 mb-1 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> เงื่อนไขการรับประกัน
+                    </h4>
+                    <p class="text-zinc-400 pl-3">ทางร้านจะชดเชยให้เฉพาะกรณีที่เป็นความผิดพลาดจากกระบวนการทำงานของร้านโดยตรงเท่านั้น เช่น โอนเงินไม่ครบ ส่งผิด หรือถ้าเป็นในกรณีอื่นๆ ผู้ซื้อจำเป็นต้องแสดงหลักฐานวิดีโอขณะทำรายการอย่างละเอียดและชัดเจน</p>
+                </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-zinc-900 flex justify-end">
+                <button onclick="closeNewPopup()" class="px-5 py-2 rounded-xl bg-purple-500/10 hover:bg-purple-500 text-purple-400 hover:text-black font-bold text-xs transition-all duration-300 border border-purple-500/20 hover:border-transparent">
+                    รับทราบและยอมรับ
+                </button>
+            </div>
         </div>
     </div>
 
     <script>
         let allData = [];
+        let globalTotalM = 0; 
+        let counterInterval = null;
+
+        // ฟังก์ชันวิ่งตัวเลขสมูทไต่ขึ้นจาก 1 พร้อมชะลอความเร็วช่วงปลาย (Ease-Out) 
+        function animateCounter(targetElement, finalValue) {
+            if (counterInterval) clearInterval(counterInterval);
+            
+            const duration = 2000; 
+            const frameRate = 1000 / 60; 
+            const totalFrames = Math.round(duration / frameRate);
+            let currentFrame = 0;
+            
+            counterInterval = setInterval(() => {
+                currentFrame++;
+                const progress = currentFrame / totalFrames;
+                const easeOutProgress = 1 - Math.pow(1 - progress, 3); 
+                
+                const currentVal = Math.floor(easeOutProgress * finalValue);
+                targetElement.innerText = currentVal.toLocaleString() + " M";
+                
+                if (currentFrame >= totalFrames) {
+                    clearInterval(counterInterval);
+                    targetElement.innerText = finalValue.toLocaleString() + " M";
+                }
+            }, frameRate);
+        }
 
         async function loadCredits() {
             const dynamicContent = document.getElementById('dynamic-content');
             const totalDisplay = document.getElementById('total-m-display');
             const selectDropdown = document.getElementById('server-filter');
             
-            let totalM = 0; 
-
             try {
                 const response = await fetch('credits.txt');
                 if (!response.ok) throw new Error('Failed to fetch data');
@@ -199,7 +352,7 @@
                     const mAmount = parts[2] ? parts[2].trim() : '0';
 
                     const mValue = parseFloat(mAmount);
-                    if (!isNaN(mValue)) { totalM += mValue; }
+                    if (!isNaN(mValue)) { globalTotalM += mValue; }
 
                     const creditItem = { url, country, mAmount };
                     allData.push(creditItem);
@@ -210,9 +363,8 @@
                     groupedCountries[country].push(creditItem);
                 });
 
-                totalDisplay.innerText = totalM.toLocaleString() + ' M';
+                animateCounter(totalDisplay, globalTotalM);
 
-                // เพิ่มรายชื่อเซิร์ฟเวอร์เข้าไปใน Dropdown
                 Object.keys(groupedCountries).forEach(countryName => {
                     const option = document.createElement('option');
                     option.value = countryName;
@@ -225,7 +377,7 @@
 
             } catch (error) {
                 console.error(error);
-                totalDisplay.innerText = '7 M';
+                animateCounter(totalDisplay, 9999);
                 dynamicContent.innerHTML = `
                     <div class="text-center py-16 bg-zinc-950/50 rounded-2xl border border-zinc-900">
                         <span class="text-2xl block mb-2">📦</span>
@@ -251,7 +403,7 @@
                     </div>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         ${items.map(item => `
-                            <div class="premium-card glass-card group cursor-pointer rounded-xl p-2 flex flex-col justify-between" onclick="openModal(this)">
+                            <div class="premium-card glass-card group cursor-pointer rounded-xl p-2 flex flex-col justify-between" onclick="openNewPopup('${item.url}')">
                                 <div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-zinc-950 relative border border-zinc-900/50">
                                     <span class="absolute top-2 left-2 z-10 text-[8px] font-bold tracking-wider bg-black/80 text-purple-400 px-1.5 py-0.5 rounded border border-purple-500/20">
                                         VERIFIED
@@ -277,6 +429,9 @@
 
         function filterCountry(targetCountry) {
             const sections = document.querySelectorAll('.country-section');
+            const totalDisplay = document.getElementById('total-m-display');
+            let filteredTotal = 0;
+
             sections.forEach(section => {
                 if (targetCountry === 'all' || section.getAttribute('data-country') === targetCountry) {
                     section.style.display = 'block';
@@ -290,36 +445,125 @@
                     section.style.display = 'none';
                 }
             });
+
+            allData.forEach(item => {
+                if (targetCountry === 'all' || item.country === targetCountry) {
+                    const mVal = parseFloat(item.mAmount);
+                    if (!isNaN(mVal)) filteredTotal += mVal;
+                }
+            });
+
+            animateCounter(totalDisplay, filteredTotal);
         }
 
-        function openModal(element) {
-            const imgSrc = element.querySelector('img').src;
-            const modal = document.getElementById('imageModal');
-            const modalContainer = document.getElementById('modalContainer');
-            const modalImg = document.getElementById('modalImage');
+        /* เปิดระบบนุ่มนวลสูงสุดแยกสองประเภท (รูปภาพ หรือ ToS) */
+        function openNewPopup(typeOrSrc) {
+            const overlay = document.getElementById('newCustomPopup');
+            const imgContainer = document.getElementById('popupImageContainer');
+            const tosContainer = document.getElementById('popupTosContainer');
+            const popupImg = document.getElementById('newPopupImage');
             
-            modalImg.src = imgSrc;
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContainer.classList.remove('scale-95');
-            modalContainer.classList.add('scale-100');
+            imgContainer.classList.add('hidden');
+            tosContainer.classList.add('hidden');
+
+            if (typeOrSrc === 'tos') {
+                tosContainer.classList.remove('hidden');
+            } else {
+                popupImg.src = typeOrSrc;
+                imgContainer.classList.remove('hidden');
+            }
+
+            overlay.style.display = 'flex';
+            
+            requestAnimationFrame(() => {
+                overlay.classList.add('active');
+            });
         }
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            const modalContainer = document.getElementById('modalContainer');
-            const modalImg = document.getElementById('modalImage');
+        /* ฟังก์ชันปิดระบบ Popup */
+        function closeNewPopup() {
+            const overlay = document.getElementById('newCustomPopup');
+            overlay.classList.remove('active');
             
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContainer.classList.remove('scale-100');
-            modalContainer.classList.add('scale-95');
-            setTimeout(() => { modalImg.src = ''; }, 300);
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 400); 
         }
 
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') closeNewPopup();
         });
 
-        window.onload = loadCredits;
+        // --- ระบบหิมะตกไซเบอร์ (Cyber Snow Engine) ---
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let flakes = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createFlakes() {
+            const maxFlakes = 65; 
+            flakes = [];
+            for (let i = 0; i < maxFlakes; i++) {
+                flakes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 1.8 + 0.8, 
+                    speed: Math.random() * 0.7 + 0.3, 
+                    color: Math.random() > 0.3 ? 'rgba(255, 255, 255, 0.45)' : 'rgba(168, 85, 247, 0.35)'
+                });
+            }
+        }
+
+        function drawFlakes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < flakes.length; i++) {
+                let f = flakes[i];
+                ctx.beginPath();
+                ctx.fillStyle = f.color;
+                ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
+                ctx.fill();
+            }
+            moveFlakes();
+        }
+
+        function moveFlakes() {
+            for (let i = 0; i < flakes.length; i++) {
+                let f = flakes[i];
+                f.y += f.speed;
+                f.x += Math.sin(f.y / 35) * 0.3;
+
+                if (f.y > canvas.height) {
+                    flakes[i] = {
+                        x: Math.random() * canvas.width,
+                        y: -10,
+                        r: f.r,
+                        speed: f.speed,
+                        color: f.color
+                    };
+                }
+            }
+        }
+
+        function animateSnow() {
+            drawFlakes();
+            requestAnimationFrame(animateSnow);
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createFlakes();
+        });
+
+        window.onload = function() {
+            loadCredits();
+            resizeCanvas();
+            createFlakes();
+            animateSnow();
+        };
     </script>
 
 </body>
